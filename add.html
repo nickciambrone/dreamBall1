@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+
+</head>
+
+<body background="/space">
+    <div class="container">
+        <div class="jumbotron" style="padding-top:19px;">
+        <h1>Add a New Character</h1>
+        
+        <a href="/"><button type="button" class="btn btn-dark">Home Page</button ></a>
+        <a href="/viewall"><button type="button" class="btn btn-dark">View All Characters</button ></a>
+
+            <hr class="my-4">
+       
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Name:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="a" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Role:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="b" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Power:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="c" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Speed:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="d" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Fielding:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="e" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Contact:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="f" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Pitch Speed:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="brokenGuy" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Pitch Skill:</h4>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="h" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align:right">
+                <h4>Special:</h4>
+            </div>
+            <div class="col-8" style="text-align:right">
+                <div class="input-group mb-3" style="height:40px;">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" id="i" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <input type="button " value="Add Character" id="addChar">
+
+        </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            $("#addChar").on("click", function () {
+                var newCharacter = {
+                    name: $("#a").val().trim(),
+                    role: $("#b").val().trim(),
+                    power: $("#c").val().trim(),
+                    speed: $("#d").val().trim(),
+                    fielding: $("#e").val().trim(),
+                    contact: $("#f").val().trim(),
+                    pitchSpeed: $("#brokenGuy").val().trim(),
+                    pitchSkill: $("#h").val().trim(),
+                    special: $("#i").val().trim()
+
+
+                };
+                $.post("http://localhost:9950/api/new", newCharacter).done(function (data) {
+                    console.log(data)
+                    alert("Adding character...")
+
+                });
+                return false;
+            })
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body background="/space">
+    <div class="container" >
+        <div class="jumbotron" style="padding-top:19px;">
+            <a href="/">
+                <button type="button" class="btn btn-dark">Home Page</button>
+            </a>
+            <a href="/add">
+                <button type="button" class="btn btn-dark">Add New Character</button>
+            </a>
+            <hr class="my-4">
+            <h1>Dream Ball:</h1>
+            <br>
+            <h3>All Characters...</h3>
+
+            <div id="charactersContainer"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $.get("http://localhost:9950/api/", function (data) {
+            console.log(data)
+            var newData = "";
+            for (var i = 0; i < data.length; i++) {
+
+                newData += data[i].name + "-<br>" + "Power: " + data[i].power + "<br>Speed:" + data[i].speed + "<br> Fielding: " + data[i].fielding + "<br> Contact: " + data[i].contact + "<br>Pitch Speed: " + data[i].pitchSpeed + "<br> Pitch Skill: " + data[i].pitchSkill + "<br> Special: " + data[i].special + "<br><br>"
+                $("#charactersContainer").html(newData)
+
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

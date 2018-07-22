@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<body background="/space">
+
+    <div class="container">
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Dream Ball</h1>
+                <p class="lead">A fantasy baseball universe</p>
+            </div>
+        </div>
+
+
+
+        <a href="/add">
+            <button type="button" class="btn btn-dark">Add a New Character</button>
+        </a>
+
+        <a href="/viewAll">
+            <button type="button" class="btn btn-dark">View All Characters</button>
+        </a>
+        <br>
+        <br>
+        <h3>Search a character:</h3>
+        <div class="container">
+            <input type="text" id="characterSearchText">
+            <input type="button" id="searchButton" value="search">
+            <h3>
+                <strong>Character Name: </strong>
+                <span id="characterName"></span>
+            </h3>
+            <div id="stats">
+                <h3>
+                    <strong>Role: </strong>
+                    <span id="characterRole"></span>
+                </h3>
+                <h3>
+                    <strong>Power: </strong>
+                    <span id="characterPower"></span>
+                </h3>
+                <h3>
+                    <strong>Speed: </strong>
+                    <span id="characterSpeed"></span>
+                </h3>
+                <h3>
+                    <strong>Fielding: </strong>
+                    <span id="characterFielding"></span>
+                </h3>
+                <h3>
+                    <strong>Contact: </strong>
+                    <span id="characterContact"></span>
+                </h3>
+                <h3>
+                    <strong>Pitch Speed: </strong>
+                    <span id="characterPitchSpeed"></span>
+                </h3>
+                <h3>
+                    <strong>Pitch Skill: </strong>
+                    <span id="characterPitchSkill"></span>
+                </h3>
+                <h3>
+                    <strong>Special: </strong>
+                    <span id="characterSpecial"></span>
+                </h3>
+            </div>
+    
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+        
+            $("#searchButton").on("click", function () {
+                var searchedCharacter = $("#characterSearchText").val().trim();
+                searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+                $.get("http://localhost:9950/api/" + searchedCharacter, function (data) {
+                    console.log(data.power)
+                    if (data) {
+                        $("#stats").show()
+                        $("#characterName").text(data.name)
+                        $("#characterRole").text(data.role)
+                        $("#characterPower").text(data.power)
+                        $("#characterSpeed").text(data.speed)
+                        $("#characterFielding").text(data.fielding)
+                        $("#characterContact").text(data.contact)
+                        $("#characterPitchSpeed").text(data.pitchSpeed)
+                        $("#characterPitchSkill").text(data.pitchSkill)
+                        $("#characterSpecial").text(data.special)
+                    }
+                    else {
+                        $("#name").text("This player is not in the Dream Ball");
+                        $("#stats").hide()
+                    }
+                })
+
+            })
+        </script>
+
+
+</body>
+
+</html>
